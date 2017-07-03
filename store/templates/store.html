@@ -17,15 +17,7 @@
 </div>
 
 <ul class="list-group">
-    <li class="list-group-item">{{store.reviews.count}} 条点评
-        <div class = "pull-right">点评排序：
-        <select id="review-order">
-            <option value="latest" selected="selected">最新点评</option>
-            <option value="likest">点赞数</option>
-            <option value="newest">最早点评</option>
-        </select>
-        </div>
-    </li>
+    <li class="list-group-item">{{store.reviews.count}} 条点评</li>
     {% for review in store.reviews.all %}
     <li class="list-group-item clearfix">
         <div>
@@ -34,14 +26,15 @@
         </div>
         <div>
             <small>
-                总体：{{review.star}}星   口味：{{review.taste_score}}   环境：{{review.environment_score}}   服务：{{review.service_score}}
+                总体：{{review.star}}星&emsp;&emsp;口味：{{review.taste_score}}&emsp;&emsp;环境：{{review.environment_score}}&emsp;&emsp;服务：{{review.service_score}}
             </small>
         </div>
         <div class="word-wrap">{{review.content}}</div>
     </li>
     {% endfor %}
 </ul>
-
+<div class="pull-right"><a href="{% url 'review' store.id %}">更多评论</a></div>
+<br><br>
 <div class="panel panel-default">
     <div class="panel-heading">填写评论</div>
     <div class="panel-body">
